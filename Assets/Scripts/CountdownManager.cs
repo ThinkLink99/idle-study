@@ -10,6 +10,8 @@ public class CountdownManager : MonoBehaviour
     public Image timerFill;
     public float Countdown = 30;
     public float CurrentTime = 30;
+    public bool Paused = false;
+
     public void Start()
     {
         timerFill.color = CountdownColor;
@@ -20,6 +22,9 @@ public class CountdownManager : MonoBehaviour
     }
     public void Update()
     {
+        // If we are paused, we don't want time to keep ticking down
+        if (Paused) return;
+
         CurrentTime -= Time.deltaTime;
         int timeInt = (int)CurrentTime;
         if (timeInt == 0)
