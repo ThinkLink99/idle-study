@@ -6,13 +6,14 @@ public class CountdownManager : MonoBehaviour
 {
     public Color CountdownColor = Color.blue;
 
-    public Text countdownText;
     public Slider timer;
-    //public GameObject timerFill;
+    public Image timerFill;
     public float Countdown = 30;
     public float CurrentTime = 30;
     public void Start()
     {
+        timerFill.color = CountdownColor;
+
         ResetCountdown();
 
         GameManager.OnHomeworkCompleted += ResetCountdown;
@@ -29,8 +30,7 @@ public class CountdownManager : MonoBehaviour
             ResetCountdown();
         }
 
-        timer.value = timeInt;
-        countdownText.text = timeInt.ToString();
+        timer.value = CurrentTime;
     }
 
     public void ResetCountdown()

@@ -5,6 +5,9 @@ using UnityEngine.UI;
 
 public class Clicker : MonoBehaviour
 {
+    public Color ProgressColor = Color.green;
+    public Image progressFill;
+
     public int RequiredWork = 100;
     public int CompletedWork = 0;
 
@@ -12,6 +15,9 @@ public class Clicker : MonoBehaviour
 
     public void Start()
     {
+        progressFill.color = ProgressColor;
+
+        GetHomework();
         GameManager.OnHomeworkFailed += GameManager_OnHomeworkFailed;
     }
 
