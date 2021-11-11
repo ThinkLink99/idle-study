@@ -61,6 +61,7 @@
     <Compile Include="Assets\Scripts\Clicker.cs" />
     <Compile Include="Assets\Scripts\CountdownManager.cs" />
     <Compile Include="Assets\Scripts\ShopUtencil.cs" />
+    <Compile Include="Assets\Scripts\ClickerFloatingTextManager.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\TextMesh Pro\Shaders\TMPro.cginc" />

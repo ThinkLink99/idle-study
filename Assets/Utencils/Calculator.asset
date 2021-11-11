@@ -13,5 +13,4 @@ MonoBehaviour:
   m_Name: Calculator
   m_EditorClassIdentifier: 
   utencilName: Calculator
-  utencilDescription: Solve problems faster by using a calculator! Earn +5 progress
-    on all clicks.
+  utencilDescription: Earn +5 progress on all clicks.

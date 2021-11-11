@@ -35,7 +35,8 @@ public class ShopManager : MonoBehaviour
             GameObject obj = Instantiate(shopUtencilPrefab);
             obj.transform.parent = utencilList;
 
-            obj.transform.GetChild(0).GetComponent<TMPro.TextMeshProUGUI>().text = utencil.name;
+            obj.transform.GetChild(0).GetComponent<TMPro.TextMeshProUGUI>().text = utencil.utencilName;
+            obj.transform.GetChild(1).GetComponent<TMPro.TextMeshProUGUI>().text = utencil.utencilDescription;
         }
     }
     public void DisposeShop ()

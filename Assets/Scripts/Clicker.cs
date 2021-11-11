@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -11,6 +12,8 @@ public class Clicker : MonoBehaviour
     public int RequiredWork = 100;
     public int CompletedWork = 0;
 
+    
+
     public Slider progressBar;
 
     public void Start()
@@ -19,6 +22,10 @@ public class Clicker : MonoBehaviour
 
         GetHomework();
         GameManager.OnHomeworkFailed += GameManager_OnHomeworkFailed;
+    }
+    private void Update()
+    {
+        
     }
 
     private void GameManager_OnHomeworkFailed()
@@ -37,7 +44,7 @@ public class Clicker : MonoBehaviour
     {
         CompletedWork++;
         progressBar.value = CompletedWork;
-
+        
         if (CompletedWork >= RequiredWork) CompleteHomework();
     }
     public void CompleteHomework()
