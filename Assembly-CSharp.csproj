@@ -59,9 +59,10 @@
     <Compile Include="Assets\Scripts\ShopManager.cs" />
     <Compile Include="Assets\Scripts\GradeManager.cs" />
     <Compile Include="Assets\Scripts\Clicker.cs" />
+    <Compile Include="Assets\Scripts\ClickerFloatingTextManager.cs" />
     <Compile Include="Assets\Scripts\CountdownManager.cs" />
     <Compile Include="Assets\Scripts\ShopUtencil.cs" />
-    <Compile Include="Assets\Scripts\ClickerFloatingTextManager.cs" />
+    <Compile Include="Assets\Scripts\ClickBuff.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\TextMesh Pro\Shaders\TMPro.cginc" />

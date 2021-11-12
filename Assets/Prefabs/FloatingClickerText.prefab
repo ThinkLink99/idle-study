@@ -11,14 +11,15 @@ GameObject:
   - component: {fileID: 4509788761475719780}
   - component: {fileID: 4509788761475719786}
   - component: {fileID: 4509788761475719787}
-  - component: {fileID: 4501943668870288097}
+  - component: {fileID: 6573928545153623688}
+  - component: {fileID: 3400490912123141474}
   m_Layer: 5
   m_Name: FloatingClickerText
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &4509788761475719780
 RectTransform:
   m_ObjectHideFlags: 0
@@ -135,7 +136,26 @@ MonoBehaviour:
   m_hasFontAssetChanged: 0
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
---- !u!114 &4501943668870288097
+--- !u!95 &6573928545153623688
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4509788761475719781}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 49fb6d8c135efb84fa18bf839ffc5987, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &3400490912123141474
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -147,7 +167,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 69098dd425279f84d86dd589ddbf83f3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  parent: {fileID: 0}
-  clickAmountText: {fileID: 4509788761475719781}
   clickAmountTextY: 0
-  moveSpeed: 32
+  moveSpeed: 128

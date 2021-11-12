@@ -11,6 +11,7 @@ public class Player : MonoBehaviour
 {
     public TextMeshProUGUI allowanceText;
     public int allowance = 0;
+    public List<Utencil> utencils;
 
     public void Start()
     {

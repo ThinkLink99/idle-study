@@ -7,4 +7,6 @@ public class Utencil : ScriptableObject
 {
     public string utencilName;
     public string utencilDescription;
+
+    public ClickBuff buff;
 }

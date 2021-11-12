@@ -194,8 +194,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -235, y: 141.42273}
-  m_SizeDelta: {x: 470, y: 875.1545}
+  m_AnchoredPosition: {x: 0, y: 9.4186}
+  m_SizeDelta: {x: 940, y: 1139.1626}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &84906090
 MonoBehaviour:
@@ -659,7 +659,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &396289605
 RectTransform:
   m_ObjectHideFlags: 0
@@ -1683,6 +1683,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   allowanceText: {fileID: 1165859348}
   allowance: 0
+  utencils: []
 --- !u!114 &1129752291
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1695,11 +1696,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 871fc50aea5f4a24d9f6962d50bc7cf5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  player: {fileID: 0}
   shop: {fileID: 396289604}
   utencilList: {fileID: 84906089}
   shopUtencilPrefab: {fileID: 2659012302484000477, guid: 1d765fd872379124896ce72f2a74f808, type: 3}
   utencils:
+  - {fileID: 11400000, guid: db8d209b419ecdf4c9b347cfeaa9919c, type: 2}
   - {fileID: 11400000, guid: e97ce07661c260244936b6c2a85b846f, type: 2}
+  - {fileID: 11400000, guid: f3cfce1dc9cdde043b42123701d16015, type: 2}
 --- !u!1 &1130488279
 GameObject:
   m_ObjectHideFlags: 0
@@ -2106,8 +2110,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -234.99998, y: 656}
-  m_SizeDelta: {x: 470, y: 129.4797}
+  m_AnchoredPosition: {x: 0, y: 739.6462}
+  m_SizeDelta: {x: 293.9946, y: 64.1872}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1209973281
 MonoBehaviour:
@@ -2158,7 +2162,7 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 72
+  m_fontSize: 57.45
   m_fontSizeBase: 36
   m_fontWeight: 400
   m_enableAutoSizing: 1
@@ -2262,6 +2266,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ProgressColor: {r: 0, g: 1, b: 0, a: 1}
   progressFill: {fileID: 919211786}
+  ClickerTextPrefab: {fileID: 4509788761475719781, guid: 410322a03f3346a49adb2a70f7b50d8c, type: 3}
+  clickerTextBounds: {fileID: 2076251246}
   RequiredWork: 100
   CompletedWork: 0
   progressBar: {fileID: 1133444066}

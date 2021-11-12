@@ -14,3 +14,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   utencilName: Calculator
   utencilDescription: Earn +5 progress on all clicks.
+  buff:
+    modifier: 5
+    stackable: 1

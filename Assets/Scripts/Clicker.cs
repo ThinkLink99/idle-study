@@ -8,6 +8,8 @@ public class Clicker : MonoBehaviour
 {
     public Color ProgressColor = Color.green;
     public Image progressFill;
+    public GameObject ClickerTextPrefab;
+    public Transform clickerTextBounds;
 
     public int RequiredWork = 100;
     public int CompletedWork = 0;
@@ -44,7 +46,10 @@ public class Clicker : MonoBehaviour
     {
         CompletedWork++;
         progressBar.value = CompletedWork;
-        
+
+        var obj = Instantiate(ClickerTextPrefab);
+        obj.GetComponent<RectTransform>().SetParent(clickerTextBounds, false);
+
         if (CompletedWork >= RequiredWork) CompleteHomework();
     }
     public void CompleteHomework()

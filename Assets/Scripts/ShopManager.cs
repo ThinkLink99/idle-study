@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class ShopManager : MonoBehaviour
 {
+    public Player player;
     public GameObject shop;
     public Transform utencilList;
     public GameObject shopUtencilPrefab;
