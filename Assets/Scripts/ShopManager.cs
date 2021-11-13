@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class ShopManager : MonoBehaviour
 {
@@ -38,6 +39,8 @@ public class ShopManager : MonoBehaviour
 
             obj.transform.GetChild(0).GetComponent<TMPro.TextMeshProUGUI>().text = utencil.utencilName;
             obj.transform.GetChild(1).GetComponent<TMPro.TextMeshProUGUI>().text = utencil.utencilDescription;
+            Utencil u = utencil;
+            obj.GetComponent<Button>().onClick.AddListener(() => Buy(u));
         }
     }
     public void DisposeShop ()
@@ -46,5 +49,10 @@ public class ShopManager : MonoBehaviour
         {
             Destroy(utencilList.GetChild(i));
         }
+    }
+
+    public void Buy (Utencil u)
+    {
+        player.utencils.Add(u);
     }
 }

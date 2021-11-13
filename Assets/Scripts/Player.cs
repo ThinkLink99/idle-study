@@ -32,4 +32,12 @@ public class Player : MonoBehaviour
         allowance += 5;
         allowanceText.text = $"${allowance}";
     }
+
+    public int ClickAmount
+    {
+        get
+        {
+            return utencils.Select(u => u.buff.modifier).Sum();
+        }
+    }
 }

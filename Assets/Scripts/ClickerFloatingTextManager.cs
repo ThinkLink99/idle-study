@@ -24,7 +24,7 @@ public class ClickerFloatingTextManager : MonoBehaviour
     {
         if (!text.activeInHierarchy) return;
         clickAmountTextY += Time.deltaTime * moveSpeed;
-        text.GetComponent<RectTransform>().anchoredPosition = new Vector3(0, clickAmountTextY);
+        //text.GetComponent<RectTransform>().anchoredPosition = new Vector3(0, clickAmountTextY);
 
         if (clickAmountTextY >= 250)
         {

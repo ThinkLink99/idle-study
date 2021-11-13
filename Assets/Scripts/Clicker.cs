@@ -6,6 +6,7 @@ using UnityEngine.UI;
 
 public class Clicker : MonoBehaviour
 {
+    public Player player;
     public Color ProgressColor = Color.green;
     public Image progressFill;
     public GameObject ClickerTextPrefab;
@@ -44,12 +45,12 @@ public class Clicker : MonoBehaviour
     }
     public void Click ()
     {
-        CompletedWork++;
+        CompletedWork += player.ClickAmount;
         progressBar.value = CompletedWork;
 
         var obj = Instantiate(ClickerTextPrefab);
         obj.GetComponent<RectTransform>().SetParent(clickerTextBounds, false);
-
+        obj.GetComponent<TextMeshProUGUI>().text = $"+{player.ClickAmount}";
         if (CompletedWork >= RequiredWork) CompleteHomework();
     }
     public void CompleteHomework()
