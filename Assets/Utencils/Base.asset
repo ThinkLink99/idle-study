@@ -12,8 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 28b94efd0d21f6348a5557c0aac484a9, type: 3}
   m_Name: Base
   m_EditorClassIdentifier: 
-  utencilName: 
-  utencilDescription: 
+  utencilName: Base
+  utencilDescription: Just your hands
   buff:
     modifier: 1
-    stackable: 1
+  cost: 0
+  stackable: 0

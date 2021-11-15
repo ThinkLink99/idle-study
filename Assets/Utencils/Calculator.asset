@@ -16,4 +16,5 @@ MonoBehaviour:
   utencilDescription: Earn +5 progress on all clicks.
   buff:
     modifier: 5
-    stackable: 1
+  cost: 5
+  stackable: 1

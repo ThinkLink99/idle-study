@@ -16,4 +16,5 @@ MonoBehaviour:
   utencilDescription: +10 Clicks
   buff:
     modifier: 10
-    stackable: 1
+  cost: 10
+  stackable: 0
