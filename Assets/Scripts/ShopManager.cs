@@ -7,6 +7,7 @@ using UnityEngine.UI;
 
 public class ShopManager : MonoBehaviour
 {
+    private UtencilsManager utencilsManager;
     private Player player;
     public GameObject shop;
     public Transform utencilList;
@@ -18,18 +19,24 @@ public class ShopManager : MonoBehaviour
     public void Start()
     {
         player = gameObject.GetComponent<Player>();
+        utencilsManager = gameObject.GetComponent<UtencilsManager>();
 
         CloseShop();
     }
 
     public void OpenShop()
     {
+        if (GameManager.shopOpen) return;
+        if (GameManager.utencilsOpen) utencilsManager.Close();
+
+        GameManager.shopOpen = true;
         BuildShop();
 
         shop.SetActive(true);
     }
     public void CloseShop()
     {
+        GameManager.shopOpen = false;
         shop.SetActive(false);
 
         DisposeShop();

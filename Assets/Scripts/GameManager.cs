@@ -10,6 +10,9 @@ public static class GameManager
     public static event Action OnHomeworkCompleted;
     public static event Action OnHomeworkFailed;
 
+    public static bool shopOpen = false;
+    public static bool utencilsOpen = false;
+
     public static void HomeworkComplete()
     {
         OnHomeworkCompleted?.Invoke();
