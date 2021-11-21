@@ -18,7 +18,7 @@ public class CountdownManager : MonoBehaviour
 
         ResetCountdown();
 
-        GameManager.OnHomeworkCompleted += ResetCountdown;
+        GameEvents.OnHomeworkCompleted += ResetCountdown;
     }
     public void Update()
     {
@@ -30,7 +30,7 @@ public class CountdownManager : MonoBehaviour
         if (timeInt == 0)
         {
             // we want to give a grade and change homework
-            GameManager.HomeworkFailed();
+            GameEvents.HomeworkFailed();
 
             ResetCountdown();
         }

@@ -13,8 +13,12 @@ MonoBehaviour:
   m_Name: StudyGuide
   m_EditorClassIdentifier: 
   utencilName: StudyGuide
-  utencilDescription: +10 Clicks
+  utencilDescription: +10 Clicks every 5 seconds
   buff:
     modifier: 10
+  autoClicker:
+    currentTime: 26.819637
+    duration: 5
   cost: 10
   stackable: 0
+  hasAutoClicker: 1

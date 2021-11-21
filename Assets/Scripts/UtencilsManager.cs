@@ -21,17 +21,17 @@ public class UtencilsManager : MonoBehaviour
 
     public void Open()
     {
-        if (GameManager.utencilsOpen) return;
-        if (GameManager.shopOpen) shopManager.CloseShop();
+        if (GameEvents.utencilsOpen) return;
+        if (GameEvents.shopOpen) shopManager.CloseShop();
 
-        GameManager.utencilsOpen = true;
+        GameEvents.utencilsOpen = true;
         Build();
 
         utencils.SetActive(true);
     }
     public void Close()
     {
-        GameManager.utencilsOpen = false;
+        GameEvents.utencilsOpen = false;
         utencils.SetActive(false);
 
         Dispose();

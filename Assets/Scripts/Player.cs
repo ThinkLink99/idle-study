@@ -20,7 +20,7 @@ public class Player : MonoBehaviour
 
     public void Start()
     {
-        GameManager.OnHomeworkCompleted += GameManager_OnHomeworkCompleted;    
+        GameEvents.OnHomeworkCompleted += GameManager_OnHomeworkCompleted;    
     }
     public void Update()
     {
@@ -82,7 +82,7 @@ public class Player : MonoBehaviour
     {
         get
         {
-            return utencils.Select(u => u.details.buff.modifier * u.qty).Sum();
+            return utencils.Where(u => !u.details.hasAutoClicker).Select(u => u.details.buff.modifier * u.qty).Sum();
         }
     }
 }

@@ -54,7 +54,8 @@
   </PropertyGroup>
   <ItemGroup>
     <Compile Include="Assets\Scripts\Player.cs" />
-    <Compile Include="Assets\Scripts\GameManager.cs" />
+    <Compile Include="Assets\Scripts\GameEvents.cs" />
+    <Compile Include="Assets\Scripts\BoughtUtencil.cs" />
     <Compile Include="Assets\Scripts\ClickBuff.cs" />
     <Compile Include="Assets\Scripts\Utencil.cs" />
     <Compile Include="Assets\Scripts\ShopManager.cs" />
@@ -64,7 +65,10 @@
     <Compile Include="Assets\Scripts\CountdownManager.cs" />
     <Compile Include="Assets\Scripts\ShopUtencil.cs" />
     <Compile Include="Assets\Scripts\UtencilsManager.cs" />
-    <Compile Include="Assets\Scripts\BoughtUtencil.cs" />
+    <Compile Include="Assets\Scripts\AutoClicker.cs" />
+    <Compile Include="Assets\Scripts\AutoClickerManager.cs" />
+    <Compile Include="Assets\Scripts\GameManager.cs" />
+    <Compile Include="Assets\Scripts\ProgressManager.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\TextMesh Pro\Shaders\TMPro.cginc" />

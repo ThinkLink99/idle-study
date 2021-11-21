@@ -9,7 +9,10 @@ public class Utencil : ScriptableObject
     public string utencilDescription;
 
     public ClickBuff buff;
+    public AutoClicker autoClicker;
 
     public int cost;
     public bool stackable;
+
+    public bool hasAutoClicker = false;
 }

@@ -26,17 +26,17 @@ public class ShopManager : MonoBehaviour
 
     public void OpenShop()
     {
-        if (GameManager.shopOpen) return;
-        if (GameManager.utencilsOpen) utencilsManager.Close();
+        if (GameEvents.shopOpen) return;
+        if (GameEvents.utencilsOpen) utencilsManager.Close();
 
-        GameManager.shopOpen = true;
+        GameEvents.shopOpen = true;
         BuildShop();
 
         shop.SetActive(true);
     }
     public void CloseShop()
     {
-        GameManager.shopOpen = false;
+        GameEvents.shopOpen = false;
         shop.SetActive(false);
 
         DisposeShop();
@@ -90,6 +90,8 @@ public class ShopManager : MonoBehaviour
             player.utencils.Add(new BoughtUtencil(utencil, 1));
 
         }
+
+        GameEvents.UtencilPickup(utencil);
         player.utencilsChanged = true;
 
         DisposeShop();
