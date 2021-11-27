@@ -20,8 +20,15 @@ public class Player : MonoBehaviour
 
     public void Start()
     {
-        GameEvents.OnHomeworkCompleted += GameManager_OnHomeworkCompleted;    
+        //GameEvents.OnHomeworkCompleted += GameManager_OnHomeworkCompleted;    
+        GameEvents.OnAssignmentScored += GameEvents_OnAssignmentScored;
     }
+
+    private void GameEvents_OnAssignmentScored(float score)
+    {
+        GiveAllowance(score);
+    }
+
     public void Update()
     {
         allowanceText.text = allowance.ToString("C");
@@ -38,10 +45,18 @@ public class Player : MonoBehaviour
     {
         GiveAllowance();
     }
-
     void GiveAllowance()
     {
         allowance += 5;
+        allowanceText.text = $"${allowance}";
+    }
+    void GiveAllowance(float score)
+    {
+        var max = 5;
+
+        var allow = Mathf.RoundToInt(max * (score / 100));
+
+        allowance += allow;
         allowanceText.text = $"${allowance}";
     }
     public bool HasUtencil (Utencil utencil)
@@ -85,4 +100,10 @@ public class Player : MonoBehaviour
             return utencils.Where(u => !u.details.hasAutoClicker).Select(u => u.details.buff.modifier * u.qty).Sum();
         }
     }
+    public int Worth
+    {
+        get {
+            return allowance + utencils.Where(u => !u.details.hasAutoClicker).Select(u => u.details.cost * u.qty).Sum();
+        }
+    }  
 }

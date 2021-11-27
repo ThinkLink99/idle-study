@@ -18,14 +18,22 @@ public class CountdownManager : MonoBehaviour
 
         ResetCountdown();
 
-        GameEvents.OnHomeworkCompleted += ResetCountdown;
+        GameEvents.OnHomeworkCompleted += GameEvents_OnHomeworkCompleted; ;
     }
+
+    private void GameEvents_OnHomeworkCompleted(float obj)
+    {
+        ResetCountdown();
+    }
+
     public void Update()
     {
         // If we are paused, we don't want time to keep ticking down
         if (Paused) return;
 
         CurrentTime -= Time.deltaTime;
+        GameEvents.TimerTick(CurrentTime);
+
         int timeInt = (int)CurrentTime;
         if (timeInt == 0)
         {

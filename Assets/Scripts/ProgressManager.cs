@@ -6,6 +6,8 @@ using UnityEngine.UI;
 
 public class ProgressManager : MonoBehaviour
 {
+    public Player player;
+
     public Color ProgressColor = Color.green;
     public Image progressFill;
 
@@ -17,13 +19,22 @@ public class ProgressManager : MonoBehaviour
     public int RequiredWork = 100;
     public int CompletedWork = 0;
 
+    private float time;
+
     // Start is called before the first frame update
     void Start()
     {
         progressFill.color = ProgressColor;
         GameEvents.OnClick += GameEvents_OnClick;
+        GameEvents.OnTimerTick += GameEvents_OnTimerTick;
+
+        GetHomework();
     }
 
+    private void GameEvents_OnTimerTick(float value)
+    {
+        time = value;
+    }
     private void GameEvents_OnClick(int amount)
     {
         var obj = Instantiate(ClickerTextPrefab);
@@ -45,12 +56,18 @@ public class ProgressManager : MonoBehaviour
     {
         CompletedWork = 0;
         progressBar.value = CompletedWork;
-        RequiredWork = Random.Range(1, 100);
+
+        var max = player.Worth + (25 * player.ClickAmount);
+        var min = max - (max / 2);
+        //Debug.Log($"Max: {max}\nWorth: {player.Worth}\nClickAMount: {player.ClickAmount}");
+        RequiredWork = Random.Range(min, max);
         progressBar.maxValue = RequiredWork;
     }
     public void CompleteHomework()
     {
+        var a = time / 30;
+
         GetHomework();
-        GameEvents.HomeworkComplete();
+        GameEvents.HomeworkComplete(a * 100);
     }
 }
