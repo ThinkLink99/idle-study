@@ -69,8 +69,6 @@
     <Compile Include="Assets\Scripts\AutoClickerManager.cs" />
     <Compile Include="Assets\Scripts\GameManager.cs" />
     <Compile Include="Assets\Scripts\ProgressManager.cs" />
-    <Compile Include="Assets\Scripts\PopQuizBubbleManager.cs" />
-    <Compile Include="Assets\Scripts\PopQuizManager.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\TextMesh Pro\Shaders\TMPro.cginc" />
