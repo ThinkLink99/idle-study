@@ -4,53 +4,73 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class ProgressManager : MonoBehaviour
+[System.Serializable]
+public class AssignmentProgress
 {
-    public Color ProgressColor = Color.green;
-    public Image progressFill;
+    [SerializeField] private Color ProgressColor = Color.green;
+    [SerializeField] private Image progressFill;
 
-    public Slider progressBar;
+    [SerializeField] private Slider progressBar;
 
-    public GameObject ClickerTextPrefab;
-    public Transform clickerTextBounds;
+    [SerializeField] private int _requiredWork = 100;
+    [SerializeField] private int _completedWork = 0;
+    [SerializeField] private bool takingExam = false;
 
-    public int RequiredWork = 100;
-    public int CompletedWork = 0;
+    public bool AssignmentFinished => _completedWork >= _requiredWork;
 
-    // Start is called before the first frame update
-    void Start()
+    public void Start()
     {
         progressFill.color = ProgressColor;
+
         GameEvents.OnClick += GameEvents_OnClick;
     }
-
     private void GameEvents_OnClick(int amount)
     {
-        var obj = Instantiate(ClickerTextPrefab);
-        obj.GetComponent<RectTransform>().SetParent(clickerTextBounds, false);
-        obj.GetComponent<TextMeshProUGUI>().text = $"+{amount}";
+        _completedWork += amount;
+        progressBar.value = _completedWork;
 
-        CompletedWork += amount;
-        progressBar.value = CompletedWork;
-        if (CompletedWork >= RequiredWork) CompleteHomework();
+        if (AssignmentFinished && !takingExam) 
+            CompleteHomework();
+
+        else if (AssignmentFinished && takingExam) 
+            CompleteExam();
     }
 
-    // Update is called once per frame
-    void Update()
+    public void ResetProgress()
     {
-
+        takingExam = false;
+        _completedWork = 0;
+        progressBar.value = _completedWork;
     }
 
-    public void GetHomework()
+    public void GetHomework(int min, int max)
     {
-        CompletedWork = 0;
-        progressBar.value = CompletedWork;
-        RequiredWork = Random.Range(1, 100);
-        progressBar.maxValue = RequiredWork;
+        ResetProgress();
+
+        int minRequiredWork = min;
+        int maxRequiredWork = max;
+
+        _requiredWork = Random.Range(minRequiredWork, maxRequiredWork);
+        progressBar.maxValue = _requiredWork;
     }
     public void CompleteHomework()
     {
-        GetHomework();
+        ResetProgress();
         GameEvents.HomeworkComplete();
+    }
+
+    public void GetExam(int workRequired)
+    {
+        ResetProgress();
+
+        takingExam = true;
+
+        _requiredWork = workRequired;
+        progressBar.maxValue = _requiredWork;
+    }
+    private void CompleteExam()
+    {
+        ResetProgress();
+        GameEvents.ExamPassed();
     }
 }

@@ -2,23 +2,20 @@
 using UnityEngine.Events;
 using UnityEngine.UI;
 
-public class CountdownManager : MonoBehaviour
+[System.Serializable]
+public class Countdown
 {
-    public Color CountdownColor = Color.blue;
+    [SerializeField] private Color CountdownColor = Color.blue;
 
-    public Slider timer;
-    public Image timerFill;
-    public float Countdown = 30;
-    public float CurrentTime = 30;
-    public bool Paused = false;
+    [SerializeField] private Slider timer;
+    [SerializeField] private Image timerFill;
+    [SerializeField] private float CurrentTime = 30;
+    [SerializeField] private bool Paused = false;
+    [SerializeField] private bool takingExam = false;
 
     public void Start()
     {
         timerFill.color = CountdownColor;
-
-        ResetCountdown();
-
-        GameEvents.OnHomeworkCompleted += ResetCountdown;
     }
     public void Update()
     {
@@ -29,18 +26,20 @@ public class CountdownManager : MonoBehaviour
         int timeInt = (int)CurrentTime;
         if (timeInt == 0)
         {
-            // we want to give a grade and change homework
-            GameEvents.HomeworkFailed();
-
-            ResetCountdown();
+            if (takingExam)
+                GameEvents.ExamFailed();
+            else
+                GameEvents.HomeworkFailed();
         }
 
         timer.value = CurrentTime;
     }
 
-    public void ResetCountdown()
+    public void ResetCountdown(float timeAlloted)
     {
-        CurrentTime = Countdown;
-        timer.maxValue = Countdown;
+        takingExam = false;
+
+        CurrentTime = timeAlloted;
+        timer.maxValue = timeAlloted;
     }
 }

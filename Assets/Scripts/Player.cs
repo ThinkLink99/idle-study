@@ -1,11 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using TMPro;
 using UnityEngine;
-using UnityEngine.UI;
 
 public class Player : MonoBehaviour
 {
@@ -15,6 +11,8 @@ public class Player : MonoBehaviour
 
     public int allowance = 0;
     public List<BoughtUtencil> utencils;
+
+    public SchoolYear currentSchoolYear;
 
     public bool utencilsChanged = false;
 
@@ -37,6 +35,11 @@ public class Player : MonoBehaviour
     private void GameManager_OnHomeworkCompleted()
     {
         GiveAllowance();
+    }
+
+    public void Click()
+    {
+        GameEvents.Click(ClickAmount);
     }
 
     void GiveAllowance()

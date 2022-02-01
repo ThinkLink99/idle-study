@@ -16,3 +16,8 @@ public class Utencil : ScriptableObject
 
     public bool hasAutoClicker = false;
 }
+
+public class Base : Utencil
+{
+    public new string utencilName = "Base";
+}
