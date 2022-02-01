@@ -9,9 +9,12 @@ public class Countdown
 
     [SerializeField] private Slider timer;
     [SerializeField] private Image timerFill;
+    [SerializeField] private float _maxTime = 30;
     [SerializeField] private float CurrentTime = 30;
     [SerializeField] private bool Paused = false;
     [SerializeField] private bool takingExam = false;
+
+    public float TimerFillPercentage => CurrentTime / _maxTime;
 
     public void Start()
     {
@@ -33,12 +36,14 @@ public class Countdown
         }
 
         timer.value = CurrentTime;
+        timerFill.fillAmount = TimerFillPercentage;
     }
 
     public void ResetCountdown(float timeAlloted)
     {
         takingExam = false;
 
+        _maxTime = timeAlloted;
         CurrentTime = timeAlloted;
         timer.maxValue = timeAlloted;
     }
