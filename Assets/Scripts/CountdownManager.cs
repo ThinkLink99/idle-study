@@ -15,6 +15,7 @@ public class Countdown
     [SerializeField] private bool takingExam = false;
 
     public float TimerFillPercentage => CurrentTime / _maxTime;
+    public bool TakingExam { get => takingExam; }
 
     public void Start()
     {

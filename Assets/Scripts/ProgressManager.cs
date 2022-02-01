@@ -17,7 +17,9 @@ public class AssignmentProgress
     [SerializeField] private bool takingExam = false;
 
     public bool AssignmentFinished => _completedWork >= _requiredWork;
-    [SerializeField] public float AssignmentFillPercentage => (float)_completedWork / _requiredWork;
+    public float AssignmentFillPercentage => (float)_completedWork / _requiredWork;
+    public bool TakingExam { get => takingExam; }
+
 
     public void Start()
     {
@@ -31,7 +33,6 @@ public class AssignmentProgress
         progressBar.value = _completedWork;
 
         progressFill.fillAmount = AssignmentFillPercentage;
-        Debug.Log($"AssignmentFillPercentage: {AssignmentFillPercentage}");
 
         if (AssignmentFinished && !takingExam) 
             CompleteHomework();

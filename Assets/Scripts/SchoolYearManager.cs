@@ -3,7 +3,7 @@ using UnityEngine;
 
 public class SchoolYearManager : MonoBehaviour
 {
-    [SerializeField] private int workCompleted = 0;
+    [SerializeField] private int _workCompleted = 0;
 
     public Player player;
     public SchoolYear[] schoolYears;
@@ -14,10 +14,13 @@ public class SchoolYearManager : MonoBehaviour
     public SchoolYear CurrentSchoolYear => player.currentSchoolYear;
     public float CurrentSchoolYearTimeAlloted => CurrentSchoolYear.TimeAlloted;
     public int RequiredAssignmentsToNextYear => CurrentSchoolYear.AssignmentsToNextYear;
-    public bool PlayerHasCompletedAllWork => workCompleted == RequiredAssignmentsToNextYear;
+    public bool PlayerHasCompletedAllWork => WorkCompleted == RequiredAssignmentsToNextYear;
 
     public int NextSchoolYear => CurrentSchoolYear.Year + 1;
     public bool NextSchoolYearExists => NextSchoolYear < schoolYears.Length;
+
+    public int WorkCompleted { get => _workCompleted; }
+    public bool IsTakingExam => assignmentProgress.TakingExam || countdown.TakingExam;
 
     void Start()
     {
@@ -42,7 +45,7 @@ public class SchoolYearManager : MonoBehaviour
 
     private void TakeExam()
     {
-        workCompleted = 0;
+        _workCompleted = 0;
         GameEvents.TakeExam(
             CurrentSchoolYear.FinalExam.TimeAlloted,
             CurrentSchoolYear.FinalExam.RequiredWork);
@@ -71,13 +74,13 @@ public class SchoolYearManager : MonoBehaviour
     }
     private void GameEvents_OnExamFailed()
     {
-        workCompleted--;
+        _workCompleted--;
         ResetWork();
     }
 
     private void GameEvents_OnHomeworkCompleted()
     {
-        workCompleted++;
+        _workCompleted++;
 
         if (PlayerHasCompletedAllWork) 
         {

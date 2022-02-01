@@ -16,6 +16,7 @@ public class SchoolYear : ScriptableObject
     [SerializeField] private FinalExam _finalExam;
 
     public int Year { get => _year; }
+    public string YearName { get => _yearName; }
     public int MinWorkRequired { get => _minWorkRequired; }
     public int MaxWorkRequired { get => _maxWorkRequired; }
     public int TimeAlloted { get => _timeAlloted; }
